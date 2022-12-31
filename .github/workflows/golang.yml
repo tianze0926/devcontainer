@@ -3,8 +3,8 @@ name: golang
 on:
   push:
     paths:
-      - .github/workflows/${{ github.workflow }}.yml
-      - "${{ github.workflow }}/**"
+      - .github/workflows/golang.yml
+      - golang/**
 
 jobs:
 
