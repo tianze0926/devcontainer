@@ -35,7 +35,7 @@ jobs:
           push: true
           tags: |
             ${{ secrets.DOCKERHUB_USERNAME }}/code-${{ github.workflow }}:latest
-            ${{ secrets.DOCKERHUB_USERNAME }}/code-${{ github.workflow }}:1.19
+            ${{ secrets.DOCKERHUB_USERNAME }}/code-${{ github.workflow }}:1.66
           builder: ${{ steps.buildx.outputs.name }}
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache
