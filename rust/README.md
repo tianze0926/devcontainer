@@ -1,6 +1,6 @@
 # Rust Devcontainer
 
-Docker containers as development environment with [code-server](https://github.com/coder/code-server).
+Docker containers as development environment with [code-server](https://github.com/coder/code-server) and [fish](https://fishshell.com/).
 
 
 ## Tags
