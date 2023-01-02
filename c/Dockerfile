@@ -14,6 +14,7 @@ RUN apt-get install -y software-properties-common &&\
     chsh -s /usr/bin/fish
 
 # code-server
+RUN apt-get install -y curl
 RUN curl -fsSL https://code-server.dev/install.sh | sh
 COPY settings.json /root/.local/share/code-server/User/
 RUN code-server --install-extension llvm-vs-code-extensions.vscode-clangd
