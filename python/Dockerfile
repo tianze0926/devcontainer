@@ -12,12 +12,11 @@ RUN apt-get update &&\
     chsh -s /usr/bin/fish
 RUN conda init fish
 
-# code-server
-RUN apt-get install -y curl
-RUN curl -fsSL https://code-server.dev/install.sh | sh
-COPY settings.json /root/.local/share/code-server/User/
-RUN code-server --install-extension ms-python.python
+# https://github.com/jupyter-lsp/jupyterlab-lsp
+RUN pip install 'jupyterlab>=3.0.0,<4.0.0a0' jupyterlab-lsp &&\
+    pip install 'python-lsp-server[all]' &&\
+    ln -s / .lsp_symlink
 
 RUN apt-get clean
 
-CMD code-server --bind-addr 0.0.0.0:8080 --auth none
+CMD jupyter lab --ContentsManager.allow_hidden=True --allow-root --ip=0.0.0.0 --port=8080 --LabApp.token=''
