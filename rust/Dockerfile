@@ -13,6 +13,9 @@ RUN echo 'deb http://download.opensuse.org/repositories/shells:/fish:/release:/3
 RUN curl -fsSL https://code-server.dev/install.sh | sh
 COPY settings.json /root/.local/share/code-server/User/
 
-RUN code-server --install-extension rust-lang.rust-analyzer
+RUN code-server --install-extension rust-lang.rust-analyzer &&\
+    code-server --install-extension bungcip.better-toml
+
+RUN apt-get clean
 
 CMD code-server --bind-addr 0.0.0.0:8080 --auth none
